@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Desa Siawung | Profil Desa</title>
+  <link rel="icon" type="image/x-icon" href="../../../static/assets/favicon/favicon.ico" />
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="../static_profil/css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+    <div class="container px-5">
+      <a class="navbar-brand fw-bold" href="#page-top">Profil Desa Siawung</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Halaman Utama</a></li>
+          <li class="nav-item"><a class="nav-link" href="#visimisi">Visi & Misi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sejarah">Sejarah</a></li>
+          <li class="nav-item"><a class="nav-link" href="#wilayah">Wilayah</a></li>
+          <li class="nav-item"><a class="nav-link" href="#populasi">Populasi</a></li>
+        </ul>
+        {% if 'user' in session %}
+        <button class="btn btn-danger rounded-pill px-3 mb-2 mb-lg-0">
+          <span class="d-flex align-items-center">
+            <i class="bi-key-fill me-2"></i>
+            <a href="/logout" class="text-decoration-none text-light"><span class="small">Keluar</span></a>
+          </span>
+        </button>
+        {% else %}
+        <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <span class="d-flex align-items-center">
+            <i class="bi-key-fill me-2"></i>
+            <span class="small">Masuk</span>
+          </span>
+        </button>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead">
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center">
+        <!-- Foto Kepala Desa -->
+        <div class="col-lg-6 text-center">
+          <img src="../static_profil/assets/img/pengurus/1.png" class="img-thumbnail rounded-circle" alt="...">
+        </div>
+        <div class="col-lg-6">
+          <!-- Mashead text and app badges-->
+          <div class="mb-5 mb-lg-0 text-center text-lg-start">
+            <h1 class="display-1 lh-1 mb-3">Sudirman, S.Sos</h1>
+            <p class="fw-normal text-muted mb-5 text-center">Puji serta syukur kami panjatkan kehadirat Allah SWT, karena atas berkat rahmat dan hidayah-Nya, kami Tim penyusun RPJMDes  Desa Anabanua telah menyelesaikan penyusunan Rencana Pembangunan Jangka Menengah Desa ( RPJM Desa ) Tahun Anggaran  2017 - 2023
+            </p>
+            <!-- <div class="d-flex flex-column flex-lg-row align-items-center">
+              <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="../static_profil/assets/img/google-play-badge.svg" alt="..." /></a>
+              <a href="#!"><img class="app-badge" src="../static_profil/assets/img/app-store-badge.svg" alt="..." /></a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Pemerintahan Desa Siawung-->
+  <section class="cta">
+    <div class="cta-content">
+      <div class="container px-5">
+        <h2 class="text-white fs-1 lh-1 text-center mt-4 position-absolute top-0 start-50 translate-middle-x">
+          Pemerintahan Desa Siawung
+          <br />
+          <span class="fs-4">Kec. Barru Kab. Barru</span>
+        </h2>
+      </div>
+    </div>
+  </section>
+  <!-- Visi & Misi-->
+  <aside class="text-center bg-gradient-primary-to-secondary" id="visimisi">
+    <div class="container px-5">
+      <div class="row gx-5 justify-content-center">
+        <div class="col-xl-8">
+          <div class="fs-1 text-white mb-4">Visi</div>
+          <div class="h2 fs-6 text-white mb-4">“Terwujudnya Desa Siawung Yang Aman, Sehat, Cerdas, Berdaya Saing, Berbudaya dan Bernafaskan Keagamaan”</div>
+          <div class="fs-1 text-white mb-4">Misi</div>
+          <div class="h2 fs-6 text-white mb-4">Dalam rangka mewujudkan visi masyarakat yang ada di Desa Siawung yang akan menjadi pedoman untuk 6 tahun kedepan. Misi yang telah dirumuskan ini merupakan dasar dalam menyusun program dan kegiatan-kegiatan yang akan mendukung tercapainya tujuan dari visi desa. </div>
+          <img src="../static_profil/assets/img/tnw-logo.svg" alt="..." style="height: 3rem" />
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Sejarah-->
+  <section id="sejarah">
+    <div class="container-fluid px-5">
+      <h2 class="display-4 lh-1 mb-4 text-center">Sejarah Desa Siawung</h2>
+      <p class="text-muted mb-0 text-center">Pada awalnya Desa Siawung berasal dari Pemekaran Kelurahan Mangempang, Kecamatan Barru, Kabupaten Barru. Kemudian pada tahun 1992 dibentuk Desa Persiapan Siawung yang dipimpin oleh Kepala Desa dari Kelurahan Tuwung bernama H.A.Latif. Kemudian, pada tahun 1995 menjadi Desa Definitif dan diadakan Pemilihan Kepala Desa pada Tahun 1995 yang pertama kalinya dan terpilih A.MUHAMMAD NURSYAM AM. <span class="mt-2 d-block">Desa Siawung terbentuk karena dianggap perlu adanya pemekaran Desa disebabkan Kelurahan Mangempang pada saat itu memiliki jangkauan wilayah terlalu luas sehingga tata kelola Pemerintahan, Pembangunan dan Pengawasan Pemerintah Desa sulit terjangkau. Awalnya dibentuklah Persiapan Pemekaran Desa dengan menamakan Desa Persiapan Siawung. Setelah menjadi Desa Definitif dinamakannya Desa Siawung. Dikatakan Desa Siawung karena awalnya desa ini pemekaran dari kelurahan Mangempang jadi arti dari kata Siawung mempunyai arti/makna nama dari seorang Tokoh yang bernama Siawung.</span>
+      </p>
+      <h3 class="font-alt mt-3">Silsilah Kepala Desa</h3>
+      <ol>
+        <li>A. Muhammad Nusyam AM Periode Tahun 1995-2005 (Definitif)</li>
+        <li>A. Pananrangi M Periode Tahun 2005-2011 (Definitif)</li>
+        <li>Anwar. P Periode Tahun 2011 (Pj. Definitif)</li>
+        <li>A. Pananrangi M, S.Sos., M.Si Periode Tahun 2011-2017 (Devinitif)</li>
+        <li>Syarief Amrullah Sadira, S.STP Periode Tahun 2017-2018 (Pj . Definitif)</li>
+      </ol>
+    </div>
+  </section>
+  <!-- WILAYAH ADMINISTRATIF -->
+  <section id="wilayah">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="display-4 lh-1 mb-4 text-center">Wilayah Administratif</div>
+        <div class="text-center fs-6">Desa Siawung terletak di Daerah Wilayah Kecamatan Barru dengan luas wilayah 8,36 km<sup>2</sup><br>Desa Siawung terdiri dari 4 Dusun dan 8 RT dengan batas wilayah sebagai berikut.</div>
+        <div class="row m-3">
+          <div class="col table-responsive">
+            <table class="table table-sm table-bordered">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Batas</th>
+                  <th scope="col">Desa / Kelurahan</th>
+                  <th scope="col">Kecamatan</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <th>Utara</th>
+                  <td>Desa Binuang</td>
+                  <td>Kecamatan Balusu</td>
+                </tr>
+                <tr>
+                  <th>Timur</th>
+                  <td>Kelurahan Sepe'e</td>
+                  <td>Kecamatan Barru</td>
+                </tr>
+                <tr>
+                  <th>Selatan</th>
+                  <td>Kelurahan Mangempang</td>
+                  <td>Kecamatan Barru</td>
+                </tr>
+                <tr>
+                  <th>Barat</th>
+                  <td>Selat Makassar</td>
+                  <td>Kecamatan Barru</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="text-center fs-6">Secara visualisasi, wilayah administratif dapat dilihat dalam Peta Wilayah Desa Siawung, sebagai berikut.</div>
+        <div class="row m-3">
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-house icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Pemukiman</h5>
+              <p class="text-muted mb-0">149,00 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-tree icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Perkebunan</h5>
+              <p class="text-muted mb-0">45,00 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-flower1 icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Pertanian</h5>
+              <p class="text-muted mb-0">135,65 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-building icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Perkantoran</h5>
+              <p class="text-muted mb-0">1 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+        </div>
+        <div class="row m-3">
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-shield-x icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Perkuburan</h5>
+              <p class="text-muted mb-0">5 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-layers icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Tegal / Ladang</h5>
+              <p class="text-muted mb-0">10 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-tree icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Hutan</h5>
+              <p class="text-muted mb-0">20 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-5">
+            <!-- Feature item-->
+            <div class="text-center">
+              <i class="bi bi-signpost-2 icon-feature text-gradient d-block mb-3"></i>
+              <h5 class="font-alt">Sarana Umum Lainnya</h5>
+              <p class="text-muted mb-0">10 Ha/m<sup>2</sup></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- POPULASI -->
+  <section id="populasi">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="display-4 lh-1 mb-4 text-center">Populasi Desa Siawung</div>
+        <div class="text-center fs-6">Populasi pada setiap dusun per Juni 2022</div>
+        <div class="row m-3">
+          <div class="col table-responsive">
+            <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2" class="text-center align-middle">Nama Dusun</th>
+                  <th scope="col" rowspan="2" class="text-center align-middle">Jumlah Kepala Keluarga</th>
+                  <th scope="col" class="text-center" colspan="2">Jumlah Jiwa</th>
+                  <th scope="col" rowspan="2" class="text-center align-middle">Total Jiwa</th>
+                </tr>
+                <tr>
+                  <th scope="col" class="text-center">L</th>
+                  <th scope="col" class="text-center">P</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td>Siawung</td>
+                  <td>243</td>
+                  <td>416</td>
+                  <td>428</td>
+                  <td>844</td>
+                </tr>
+                <tr>
+                  <td>Cempa</td>
+                  <td>182</td>
+                  <td>390</td>
+                  <td>363</td>
+                  <td>753</td>
+                </tr>
+                <tr>
+                  <td>Panrenge</td>
+                  <td>199</td>
+                  <td>357</td>
+                  <td>366</td>
+                  <td>723</td>
+                </tr>
+                <tr>
+                  <td>Birue</td>
+                  <td>237</td>
+                  <td>442</td>
+                  <td>408</td>
+                  <td>850</td>
+                </tr>
+              </tbody>
+              <tfoot class="text-center">
+                <th>Jumlah</th>
+                <th>861</th>
+                <th>1.605</th>
+                <th>1.565</th>
+                <th>3.170</th>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Basic features section-->
+  <section class="bg-light">
+    <div class="container px-5">
+      <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+        <div class="col-12 col-lg-5">
+          <h2 class="display-4 lh-1 mb-4">Pelayanan Jarak Jauh dengan Aplikasi</h2>
+          <p class="lead fw-normal text-muted mb-5 mb-lg-0">Desa Siawung telah menyiapkan layanan berbasis aplikasi Android. Masyarakat dapat mengirimkan permintaan persuratan dengan tetap di rumah lewat genggaman Anda.</p>
+          <div class="text-center my-3">
+            <img src="/static/assets/img/digides.png" width="100px" alt="">
+            <a class="btn btn-success btn-xl" target="_blank" href="https://play.google.com/store/apps/details?id=com.upanastudio.digitaldesa">Download Now!</a>
+          </div>
+        </div>
+        <div class="col-sm-8 col-md-6">
+          <div class="px-5 px-sm-0"><img class="img-fluid" src="../static_profil/assets/img/digides.webp" alt="aplikasi digides" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- App badge section-->
+  <section id="download">
+    <div class="container px-5">
+      <h2 class="text-center text-dark font-alt mb-4">Layanan Warga</h2>
+      <h5 class="text-center text-dark font-alt mb-4">Alur Pelayanan Langsung</h5>
+      <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
+        <img class="img-fluid" src="../static_profil/assets/img/alur pelayanan/langsung.webp" alt="alur pelayanan" />
+      </div>
+      <h5 class="text-center text-dark font-alt mb-4">Alur Pelayanan Online</h5>
+      <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
+        <img class="img-fluid" src="../static_profil/assets/img/alur pelayanan/online.webp" alt="alur pelayanan" />
+      </div>
+    </div>
+  </section>  
+  <!-- Login -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Masuk Admin Siawung</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container text-center" style="width: 100%">
+            {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+          </div>
+          <form action="{{ url_for('profil_desa.login') }}" method="POST">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+              <label for="sandi" class="form-label">Kata Sandi</label>
+              <input type="password" class="form-control" id="sandi" name="sandi" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Masuk</button>
+            <a data-bs-target="#buatAkun" data-bs-toggle="modal" type="button" class="ms-3">buat akun!</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Register -->
+  <div class="modal fade" id="buatAkun" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="buatAkunLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="buatAkunLabel">Buat Akun</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container text-center" style="width: 100%">
+            {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+          </div>
+          <form action="{{ url_for('profil_desa.register') }}" method="POST">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+              <label for="sandi" class="form-label">Kata Sandi</label>
+              <input type="password" class="form-control" id="sandi" name="sandi" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Buat Akun</button>
+            <a data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button" class="ms-3">Masuk</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer-->
+  <footer class="bg-black text-center py-5">
+    <div class="container px-5">
+      <div class="text-white-50 small">
+        <div class="mb-2">Alamat Kantor</div>
+        <p>Jl. A. Beddu DG. Mangile Siawung</p>
+        <a href="#!">Desa Siawung</a>
+        <span class="mx-1">&middot;</span>
+        <a href="#!">Kec. Barru</a>
+        <span class="mx-1">&middot;</span>
+        <a href="#!">Kab. Barru</a>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="../static_profil/js/scripts.js"></script>
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

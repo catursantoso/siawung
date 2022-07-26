@@ -1,0 +1,17 @@
+{% extends 'base/base_dashboard.html' %}
+
+{% block content %}
+<div class="container">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nama : {{ data.nama }}</li>
+    <li class="list-group-item">Jenis Kelamin : {{ data.jenis_kelamin }}</li>
+    <li class="list-group-item">Pekerjaan : {{ data.pekerjaan }}</li>
+    <li class="list-group-item">Alamat : {{ data.alamat }}</li>
+    <li class="list-group-item">Email : {{ data.email }}</li>
+    <li class="list-group-item">Medsos : {{ data.medsos }}</li>
+    <li class="list-group-item">Nomor Hp : {{ data.nomor }}</li>
+    <li class="list-group-item">Pengaduan : {{ data.pengaduan }}</li>
+  </ul>
+  <a href="/dashboard" class="btn btn-primary mt-3"><i class="bi bi-arrow-return-left"></i></a>
+</div>
+{% endblock %}

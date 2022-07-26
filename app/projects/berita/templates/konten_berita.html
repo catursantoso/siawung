@@ -1,0 +1,80 @@
+{% extends 'berita/templates/base.html' %}
+{% set title = 'Berita | Artikel' %}
+{% block content %}
+<!-- Page content-->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Post content-->
+      <article>
+        <!-- Post header-->
+        <header class="mb-4">
+          <!-- Post title-->
+          <h1 class="fw-bolder mb-1">{{ data.judul }}</h1>
+          <!-- Post meta content-->
+          <div class="text-muted fst-italic mb-2">Posted on {{ data.tanggal }} by {{ data.penulis }}</div>
+        </header>
+        <!-- Preview image figure-->
+        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+        <!-- Post content-->
+        <section class="mb-5">
+          <p class="fs-5 mb-4">
+            {{ data.isi }}
+          </p>
+        </section>
+      </article>
+    </div>
+    {% if 'user' in session %}
+    <!-- Side widgets-->
+    <div class="col-lg-4">
+      <!-- Side widget-->
+      <div class="card mb-4">
+        <div class="card-header">Utilitas</div>
+        <div class="card-body">
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#buatBerita">Edit Berita</button>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+  </div>
+</div>
+<!-- Modal Buat Berita -->
+<div class="modal fade" id="buatBerita" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="buatBeritaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buatBeritaLabel">Form Berita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('berita.konten_berita', uid=user.id) }}" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="judul" class="form-label">Judul Berita</label>
+            <input type="text" class="form-control" id="judul" name="judul" value="{{ data.judul }}">
+          </div>
+          <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi Berita</label>
+            <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ data.deskripsi }}">
+          </div>
+          <div class="mb-3">
+            <label for="penulis" class="form-label">Penulis Berita</label>
+            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ data.penulis }}">
+          </div>
+          <div class="mb-3">
+            <label for="isi" class="form-label">Isi Berita</label>
+            <textarea class="form-control" id="isi" name="isi" rows="3">{{ data.isi }}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="dokumentasi" class="form-label">Dokumentasi Berita</label>
+            <input class="form-control form-control-sm" id="dokumentasi" name="dokumentasi" value="{{ data.dokumentasi }}" type="file">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Ubah</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
