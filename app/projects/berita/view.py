@@ -1,3 +1,4 @@
+from urllib.parse import unquote
 from flask import Blueprint, render_template, request, redirect, url_for
 from app.services.firebase import DB, firestore, Storage
 from datetime import datetime
@@ -54,6 +55,17 @@ def konten_berita(uid):
             "penulis": request.form["penulis"],
             "isi": request.form["isi"],
         }
+        if 'dokumentasi' in request.files and request.files['dokumentasi']:
+            image = request.files['dokumentasi']
+
+            old_image = data['gambar'].split('/')[-1]
+            old_blob = Storage.blob(unquote(old_image))
+            if old_blob.exists(): old_blob.delete()
+
+            blob = Storage.blob(image.filename)
+            blob.upload_from_file(image, content_type=image.headers._list[1][1])
+            blob.make_public()
+            datas["gambar"] = blob.public_url
         DB.collection("Berita").document(uid).set(datas, merge=True)
         return redirect(url_for("berita.berita"))
     user = DB.collection("Berita").document(uid).get().to_dict()
@@ -64,5 +76,11 @@ def konten_berita(uid):
 @berita_blueprint.route("/berita/hapus/<uid>")
 @login_required
 def hapus_berita(uid):
+    data = DB.collection("Berita").document(uid).get().to_dict()
+
+    old_image = data['gambar'].split('/')[-1]
+    old_blob = Storage.blob(unquote(old_image))
+    if old_blob.exists(): old_blob.delete()
+
     DB.collection("Berita").document(uid).delete()
     return redirect(url_for("berita.berita"))
