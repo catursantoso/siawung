@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from app.services.firebase import DB, firestore
+from app.services.firebase import DB, firestore, Storage
 from datetime import datetime
 from app.projects.profil.view import login_required
 
@@ -27,7 +27,12 @@ def berita():
 @berita_blueprint.route("/berita/buat_berita", methods=["GET", "POST"])
 def add_berita():
     if request.method == "POST":
+        image = request.files["dokumentasi"]
+        blob = Storage.blob(image.filename)
+        blob.upload_from_file(image, content_type=image.headers._list[1][1])
+        blob.make_public()
         data = {
+            "gambar": blob.public_url,
             "judul": request.form["judul"],
             "deskripsi": request.form["deskripsi"],
             "penulis": request.form["penulis"],

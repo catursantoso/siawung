@@ -15,6 +15,6 @@ certfication = {
 }
 
 cred = credentials.Certificate(certfication)
-firebase_admin.initialize_app(cred, {"storageBucket": "gs://desa-siawung.appspot.com"})
+firebase_admin.initialize_app(cred, {"storageBucket": "desa-siawung.appspot.com"})
 DB = firestore.client()
 Storage = storage.bucket()
