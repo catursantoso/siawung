@@ -230,6 +230,14 @@ sub {
   bottom: -0.25em;
 }
 
+.thumb-gambar{
+  object-fit: cover;
+  object-position: top;
+  width: 700px;
+  height: 350px;
+}
+
+
 sup {
   top: -0.5em;
 }

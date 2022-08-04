@@ -4,22 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="Berita Desa Siawung" />
-  <meta name="author" content="Made by KKN Unhas Gel. 108" />
+  <meta name="author" content="KKN Unhas Gel. 108" />
   <title>{{ title }}</title>
+  <meta property="og:site_name" content="Desa Siawung">
+  <!-- Whatsapp Meta -->
+  {% block meta %}
+  {% endblock %}
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="../../../static/assets/favicon/favicon.ico" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="../static_berita/css/styles.css" rel="stylesheet" />
 </head>
-<body>
+<body style="min-height: 100vh;">
   <!-- Responsive navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <img src="../../../static/assets/img/logo/logo.png" width="50px" class="me-3" alt="">
-      <a class="navbar-brand" href="/">Berita Desa</a>
+      <a class="navbar-brand" href="/">BERITA DESA</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Halaman Utama</a></li>
           <li class="nav-item"><a class="nav-link" href="/berita">Laman Berita</a></li>
           {% if 'user' in session %}
           <li class="nav-item">
@@ -27,9 +32,8 @@
               {{ navs }}
             </a>
           </li>
+          <li class="nav-item"><a class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#buatBerita">{{ utils }}</a></li>
           {% endif %}
-          <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" aria-current="page" href="#">Blog</a></li>
         </ul>
       </div>
     </div>
@@ -37,8 +41,32 @@
   {% block content %}
   {% endblock %}
   <!-- Footer-->
-  <footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+  <footer class="py-4 bg-dark">
+    <div class="row container mx-auto">
+      <div class="col-md-6 text-center text-light">
+        <h5 class="fs-5">Alamat Kantor</h5>
+        <dl class="small">
+          <dt>Jl. A. Beddu DG. Mangile Siawung</dt>
+          <dd>
+            <a class="text-decoration-none text-light">Desa Siawung</a>
+            <span class="mx-1">&middot;</span>
+            <a class="text-decoration-none text-light">Kec. Barru</a>
+            <span class="mx-1">&middot;</span>
+            <a class="text-decoration-none text-light">Kab. Barru</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="col-md-6 text-center text-light">
+        <h5 class="fs-5">No. Telepon Penting</h5>
+        <dl class="small">
+          <dt>Kepala Desa</dt>
+          <dd>085394050577</dd>
+          <dt>Sekretaris Desa</dt>
+          <dd>085343971178</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="container px-4 px-lg-5"><div class="small text-center text-light">&copy;Desa Siawung. <br>Made by KKNT Unhas 108 <br><span><img src="../../static/assets/img/logo/svbarru.png" width="50px" alt="Smart Village Barru"> <img src="../../static/assets/img/logo/posko.png" width="50px" alt="Posko 6"></span></div></div>
   </footer>
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

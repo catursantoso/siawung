@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="description" content="Profil Desa Siawung" />
+  <meta name="author" content="Desa Siawung" />
   <title>Desa Siawung | Profil Desa</title>
   <link rel="icon" type="image/x-icon" href="../../../static/assets/favicon/favicon.ico" />
   <!-- Bootstrap icons-->
@@ -31,16 +31,19 @@
           <li class="nav-item"><a class="nav-link" href="/">Halaman Utama</a></li>
           <li class="nav-item"><a class="nav-link" href="#visimisi">Visi & Misi</a></li>
           <li class="nav-item"><a class="nav-link" href="#sejarah">Sejarah</a></li>
+          <li class="nav-item"><a class="nav-link" href="#peta">Peta Desa</a></li>
           <li class="nav-item"><a class="nav-link" href="#wilayah">Wilayah</a></li>
           <li class="nav-item"><a class="nav-link" href="#populasi">Populasi</a></li>
         </ul>
         {% if 'user' in session %}
-        <button class="btn btn-danger rounded-pill px-3 mb-2 mb-lg-0">
-          <span class="d-flex align-items-center">
-            <i class="bi-key-fill me-2"></i>
-            <a href="/logout" class="text-decoration-none text-light"><span class="small">Keluar</span></a>
-          </span>
-        </button>
+        <a href="/logout" class="text-decoration-none text-light">
+          <button class="btn btn-danger rounded-pill px-3 mb-2 mb-lg-0">
+            <span class="d-flex align-items-center">
+              <i class="bi-power me-2"></i>
+              <span class="small">Keluar</span>
+            </span>
+          </button>
+        </a>
         {% else %}
         <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
           <span class="d-flex align-items-center">
@@ -115,6 +118,15 @@
         <li>A. Pananrangi M, S.Sos., M.Si Periode Tahun 2011-2017 (Devinitif)</li>
         <li>Syarief Amrullah Sadira, S.STP Periode Tahun 2017-2018 (Pj . Definitif)</li>
       </ol>
+    </div>
+  </section>
+  <!-- Peta Desa-->
+  <section id="peta">
+    <div class="container-fluid px-5">
+      <h2 class="display-4 lh-1 mb-4 text-center">Peta Desa Siawung</h2>
+      <div class="row justify-content-center">
+        <img src="../static_profil/assets/img/peta siwaung.jpg" class="img-fluid col-md-7 col-12" alt="">
+      </div>
     </div>
   </section>
   <!-- WILAYAH ADMINISTRATIF -->
@@ -294,7 +306,7 @@
       </div>
     </div>
   </section>
-  <!-- Basic features section-->
+  <!-- DigiDes -->
   <section class="bg-light">
     <div class="container px-5">
       <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
@@ -402,26 +414,35 @@
   </div>
   <!-- Footer-->
   <footer class="bg-black text-center py-5">
-    <div class="container px-5">
-      <div class="text-white-50 small">
-        <div class="mb-2">Alamat Kantor</div>
-        <p>Jl. A. Beddu DG. Mangile Siawung</p>
-        <a href="#!">Desa Siawung</a>
-        <span class="mx-1">&middot;</span>
-        <a href="#!">Kec. Barru</a>
-        <span class="mx-1">&middot;</span>
-        <a href="#!">Kab. Barru</a>
+    <div class="row container mx-auto">
+      <div class="col-md-6 text-center text-muted">
+        <h5 class="fs-5">Alamat Kantor</h5>
+        <dl class="small">
+          <dt>Jl. A. Beddu DG. Mangile Siawung</dt>
+          <dd>
+            <a class="text-decoration-none text-muted">Desa Siawung</a>
+            <span class="mx-1">&middot;</span>
+            <a class="text-decoration-none text-muted">Kec. Barru</a>
+            <span class="mx-1">&middot;</span>
+            <a class="text-decoration-none text-muted">Kab. Barru</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="col-md-6 text-center text-muted">
+        <h5 class="fs-5">No. Telepon Penting</h5>
+        <dl class="small">
+          <dt>Kepala Desa</dt>
+          <dd>085394050577</dd>
+          <dt>Sekretaris Desa</dt>
+          <dd>085343971178</dd>
+        </dl>
       </div>
     </div>
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">&copy;Desa Siawung. <br>Made by KKNT Unhas 108 <br><span><img src="../../static/assets/img/logo/svbarru.png" width="50px" alt="Smart Village Barru"> <img src="../../static/assets/img/logo/posko.png" width="50px" alt="Posko 6"></span></div></div>
   </footer>
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
   <script src="../static_profil/js/scripts.js"></script>
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-  <!-- * *                               SB Forms JS                               * *-->
-  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>

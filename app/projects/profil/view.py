@@ -28,7 +28,7 @@ def profil():
 @profil_blueprint.route("/login", methods=["GET", "POST"])
 def login():
     if "user" in session:
-        return redirect(url_for("dashboard.dashboard"))
+        return redirect(url_for("profil_desa.profil"))
     if request.method == "POST":
         data = {
             "username": request.form["username"],
@@ -46,7 +46,7 @@ def login():
             session["user"] = user
             session["userId"] = us.id
             # flash('Anda berhasil login', 'success')
-            return redirect(url_for("dashboard.dashboard"))
+            return redirect(url_for("profil_desa.profil"))
         else:
             flash("Maaf, anda gagal login", "danger")
     return render_template("profil.html")

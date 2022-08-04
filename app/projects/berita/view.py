@@ -13,7 +13,7 @@ berita_blueprint = Blueprint(
 def berita():
     data = (
         DB.collection("Berita")
-        .order_by("tanggal", direction=firestore.Query.DESCENDING)
+        .order_by("date_posted", direction=firestore.Query.DESCENDING)
         .stream()
     )
     datas = []
@@ -25,7 +25,7 @@ def berita():
     return render_template("berita.html", data=datas)
 
 
-@berita_blueprint.route("/berita/buat_berita", methods=["GET", "POST"])
+@berita_blueprint.route("/berita", methods=["GET", "POST"])
 def add_berita():
     if request.method == "POST":
         image = request.files["dokumentasi"]
@@ -37,8 +37,11 @@ def add_berita():
             "judul": request.form["judul"],
             "deskripsi": request.form["deskripsi"],
             "penulis": request.form["penulis"],
-            "isi": request.form["isi"],
-            "tanggal": datetime.utcnow().strftime("%m/%d/%Y"),
+            "paragraf1": request.form["paragraf1"],
+            "paragraf2": request.form["paragraf2"],
+            "paragraf3": request.form["paragraf3"],
+            "tanggal": datetime.utcnow().strftime("%d %B, %Y"),
+            "date_posted": datetime.utcnow().strftime("%Y/%m/%d"),
         }
         DB.collection("Berita").document().set(data)
         return redirect(url_for("berita.berita"))
@@ -53,14 +56,17 @@ def konten_berita(uid):
             "judul": request.form["judul"],
             "deskripsi": request.form["deskripsi"],
             "penulis": request.form["penulis"],
-            "isi": request.form["isi"],
+            "paragraf1": request.form["paragraf1"],
+            "paragraf2": request.form["paragraf2"],
+            "paragraf3": request.form["paragraf3"],
         }
-        if 'dokumentasi' in request.files and request.files['dokumentasi']:
-            image = request.files['dokumentasi']
+        if "dokumentasi" in request.files and request.files["dokumentasi"]:
+            image = request.files["dokumentasi"]
 
-            old_image = data['gambar'].split('/')[-1]
+            old_image = data["gambar"].split("/")[-1]
             old_blob = Storage.blob(unquote(old_image))
-            if old_blob.exists(): old_blob.delete()
+            if old_blob.exists():
+                old_blob.delete()
 
             blob = Storage.blob(image.filename)
             blob.upload_from_file(image, content_type=image.headers._list[1][1])
@@ -78,9 +84,10 @@ def konten_berita(uid):
 def hapus_berita(uid):
     data = DB.collection("Berita").document(uid).get().to_dict()
 
-    old_image = data['gambar'].split('/')[-1]
+    old_image = data["gambar"].split("/")[-1]
     old_blob = Storage.blob(unquote(old_image))
-    if old_blob.exists(): old_blob.delete()
+    if old_blob.exists():
+        old_blob.delete()
 
     DB.collection("Berita").document(uid).delete()
     return redirect(url_for("berita.berita"))

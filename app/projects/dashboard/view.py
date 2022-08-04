@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for, request, session
 from app.services.firebase import DB, firestore
 from app.projects.profil.view import login_required
 
@@ -26,3 +26,10 @@ def dashboard():
 def lihat_data(uid):
     data = DB.collection("Data Pengaduan").document(uid).get().to_dict()
     return render_template("detail.html", data=data)
+
+
+@dashboard_blueprint.route("/dashboard/hapus/<uid>")
+@login_required
+def hapus_berita(uid):
+    DB.collection("Data Pengaduan").document(uid).delete()
+    return redirect(url_for("dashboard.dashboard"))

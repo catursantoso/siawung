@@ -1,9 +1,28 @@
 {% extends 'berita/templates/base.html' %}
 {% set title = 'Berita | Artikel' %}
+{% set utils = 'Edit Berita' %}
+{% block meta %}
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ request.url }}">
+<meta property="og:title" content="{{ data.judul }}">
+<meta property="og:description" content="{{ data.deskripsi }}">
+<meta property="og:image" itemprop="image" content="{{ data.gambar }}" />
+<meta property="og:image:secure_url" content="{{ data.gambar }}" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="300" />
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ request.url }}">
+<meta property="twitter:title" content="{{ data.judul }}">
+<meta property="twitter:description" content="{{ data.deskripsi }}">
+<meta property="twitter:image" content="{{ data.gambar }}">
+{% endblock %}
 {% block content %}
 <!-- Page content-->
 <div class="container mt-5">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-lg-8">
       <!-- Post content-->
       <article>
@@ -12,34 +31,27 @@
           <!-- Post title-->
           <h1 class="fw-bolder mb-1">{{ data.judul }}</h1>
           <!-- Post meta content-->
-          <div class="text-muted fst-italic mb-2">Posted on {{ data.tanggal }} by {{ data.penulis }}</div>
+          <div class="text-muted fst-italic mb-2">Diposting pada {{ data.tanggal }} oleh {{ data.penulis }}</div>
         </header>
         <!-- Preview image figure-->
-        <figure class="mb-4"><img class="img-fluid rounded" src="{{ data.gambar or 'https://dummyimage.com/900x400/ced4da/6c757d.jpg' }}" alt="..." /></figure>
+        <figure class="mb-4"><img class="img-fluid rounded" src="{{ data.gambar or 'https://dummyimage.com/900x400/ced4da/6c757d.jpg' }}" width="900" height="400" alt="thumbnail gambar" /></figure>
         <!-- Post content-->
         <section class="mb-5">
-          <p class="fs-5 mb-4">
-            {{ data.isi }}
+          <p class="fs-5 desc mb-4">
+            {{ data.paragraf1 }}
+          </p>
+          <p class="fs-5 desc mb-4">
+            {{ data.paragraf2 }}
+          </p>
+          <p class="fs-5 desc mb-4">
+            {{ data.paragraf3 }}
           </p>
         </section>
       </article>
     </div>
-    {% if 'user' in session %}
-    <!-- Side widgets-->
-    <div class="col-lg-4">
-      <!-- Side widget-->
-      <div class="card mb-4">
-        <div class="card-header">Utilitas</div>
-        <div class="card-body">
-          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#buatBerita">Edit Berita</button>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-    
   </div>
 </div>
-<!-- Modal Buat Berita -->
+<!-- Modal Ubah Berita -->
 <div class="modal fade" id="buatBerita" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="buatBeritaLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -51,23 +63,31 @@
         <form action="{{ url_for('berita.konten_berita', uid=user.id) }}" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="judul" class="form-label">Judul Berita</label>
-            <input type="text" class="form-control" id="judul" name="judul" value="{{ data.judul }}">
+            <input type="text" class="form-control" id="judul" name="judul" value="{{ data.judul }}" required>
           </div>
           <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi Berita</label>
-            <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ data.deskripsi }}">
+            <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ data.deskripsi }}" required>
           </div>
           <div class="mb-3">
             <label for="penulis" class="form-label">Penulis Berita</label>
-            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ data.penulis }}">
+            <input type="text" class="form-control" id="penulis" name="penulis" value="{{ data.penulis }}" required>
           </div>
           <div class="mb-3">
-            <label for="isi" class="form-label">Isi Berita</label>
-            <textarea class="form-control" id="isi" name="isi" rows="3">{{ data.isi }}</textarea>
+            <label for="paragraf1" class="form-label">Isi Berita<sup>Paragraf 1</sup></label>
+            <textarea class="form-control" id="paragraf1" name="paragraf1" rows="3" required>{{ data.paragraf1 }}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="paragraf2" class="form-label">Isi Berita<sup>Paragraf 2</sup></label>
+            <textarea class="form-control" id="paragraf2" name="paragraf2" rows="3">{{ data.paragraf2 }}</textarea>
+          </div>
+          <div class="mb-3">
+            <label for="paragraf3" class="form-label">Isi Berita<sup>Paragraf 3</sup></label>
+            <textarea class="form-control" id="paragraf3" name="paragraf3" rows="3">{{ data.paragraf3 }}</textarea>
           </div>
           <div class="mb-3">
             <label for="dokumentasi" class="form-label">Dokumentasi Berita</label>
-            <input class="form-control form-control-sm" id="dokumentasi" name="dokumentasi" value="{{ data.dokumentasi }}" type="file" accept="image/*">
+            <input class="form-control form-control-sm" id="dokumentasi" name="dokumentasi" value="" type="file" accept="image/*" required>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Ubah</button>
